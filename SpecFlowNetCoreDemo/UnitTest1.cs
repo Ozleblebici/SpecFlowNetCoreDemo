@@ -14,9 +14,9 @@ namespace SpecFlowNetCoreDemo
         public void Setup()
         {
             Console.WriteLine("Setup");
-            ChromeOptions a = new ChromeOptions();
-
-            Driver = new ChromeDriver(a);
+            ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.AddArguments("headless");
+            Driver = new ChromeDriver(chromeOptions);
 
         }
 
