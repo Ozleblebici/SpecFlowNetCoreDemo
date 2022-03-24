@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using SpecFlowNetCoreDemo.Pages;
 using System;
 
 namespace SpecFlowNetCoreDemo
@@ -15,7 +16,7 @@ namespace SpecFlowNetCoreDemo
         {
             Console.WriteLine("Setup");
             ChromeOptions chromeOptions = new ChromeOptions();
-            chromeOptions.AddArguments("headless");
+            //chromeOptions.AddArguments("headless");
             Driver = new ChromeDriver(chromeOptions);
 
         }
@@ -29,11 +30,30 @@ namespace SpecFlowNetCoreDemo
 
             Console.WriteLine("PASSes");
 
-            // Assert.Pass();
+            Assert.Pass();
 
 
 
             CustomControl.ComboBox("AllMealsCombo", "Almond");        
+        }
+
+        [Test]
+        public void LoginTest()
+        {
+            Driver.Navigate().GoToUrl("http://eaapp.somee.com/");
+
+            HomePage homePage = new HomePage();
+            LoginPage loginPage = new LoginPage();
+
+            homePage.ClickLogin();
+            loginPage.EnterUserNameAndPassword("admin", "password");
+            loginPage.ClickLogin();
+
+            Assert.That(homePage.IsLogOffExist(), Is.True, "Log off button did not displayed");
+
+
+
+            
         }
     }
 
