@@ -7,8 +7,14 @@ using System.Threading.Tasks;
 
 namespace SpecFlowNetCoreDemo.Pages
 {
-     public class LoginPage : DriverHelper
+    public class LoginPage
     {
+
+        private IWebDriver Driver;
+        public LoginPage(IWebDriver driver)
+        {
+            this.Driver = driver;
+        }
 
         IWebElement txtUserName => Driver.FindElement(By.Name("UserName"));
         IWebElement txtPassword => Driver.FindElement(By.Name("Password"));

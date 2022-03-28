@@ -34,22 +34,22 @@ namespace SpecFlowNetCoreDemo
 
 
 
-            CustomControl.ComboBox("AllMealsCombo", "Almond");        
+           // CustomControl.ComboBox("AllMealsCombo", "Almond");        
         }
 
         [Test]
         public void LoginTest()
         {
-            Driver.Navigate().GoToUrl("http://eaapp.somee.com/");
+           
 
-            HomePage homePage = new HomePage();
-            LoginPage loginPage = new LoginPage();
+            //HomePage homePage = new HomePage();
+            //LoginPage loginPage = new LoginPage();
 
-            homePage.ClickLogin();
-            loginPage.EnterUserNameAndPassword("admin", "password");
-            loginPage.ClickLogin();
+            //homePage.ClickLogin();
+            //loginPage.EnterUserNameAndPassword("admin", "password");
+            //loginPage.ClickLogin();
 
-            Assert.That(homePage.IsLogOffExist(), Is.True, "Log off button did not displayed");
+            //Assert.That(homePage.IsLogOffExist(), Is.True, "Log off button did not displayed");
 
 
 
